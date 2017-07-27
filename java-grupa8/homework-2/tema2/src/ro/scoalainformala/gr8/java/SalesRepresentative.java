@@ -11,9 +11,9 @@ public class SalesRepresentative {
     private int quota;
 
     /**
-     * It is a method which record the repo records.
+     * It is a object which record the repo records.
      *
-     * @param name is the repo name
+     * @param name  is the repo name
      * @param sales is the number of sales of the repo
      * @param quota is quota of sale
      * @author Sorin Avram
@@ -26,11 +26,12 @@ public class SalesRepresentative {
     }
 
     /**
-     * It is a method which initialize the repo records, when no arguments its given.
-     *
+     * It is a object which initialize the repo records, when no arguments its given.
+     * <p>
      * <p> name = "", is the repo name</p>
      * <p> sales = 0,  is the number of sales of the repo</p>
      * <p> quota = 0, is quota of sale</p>
+     *
      * @author Sorin Avram
      */
     public SalesRepresentative() {
@@ -46,17 +47,19 @@ public class SalesRepresentative {
      * @author Sorin Avram
      */
     public int getSaleRepresentativeAmount() {
+
         return (sales * quota);
     }
 
+    /**
+     * It is a method which switch the two repo in array
+     *
+     * @param repo it is the repo which replace "this" repo
+     * @return the changed repo
+     * @author Sorin Avram
+     */
     public SalesRepresentative switchRepo(SalesRepresentative repo) {
-        /**
-         * It is a method which switch the two repo in array
-         *
-         * @param repo it is the repo which replace "this" repo
-         * @return the changed repo
-         * @author Sorin Avram
-         */
+
         SalesRepresentative temp = new SalesRepresentative();
 
         temp.copyRep(this);
