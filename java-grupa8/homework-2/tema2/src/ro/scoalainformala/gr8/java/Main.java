@@ -17,7 +17,7 @@ public class Main {
     }
 
     /**
-     * This method will create a new array of repo and oder it
+     * This method will oder the repo array
      *
      * @param randomOrder is the array repo in random order
      * @return ordered  is the ordered array of repo
@@ -25,10 +25,7 @@ public class Main {
      */
     private static SalesRepresentative[] sort(SalesRepresentative[] randomOrder) {
 
-        SalesRepresentative[] ordered = new SalesRepresentative[randomOrder.length];
-
-        //copy array randomOrder to ordered
-        copyArray(randomOrder, ordered);
+        SalesRepresentative[] ordered =  randomOrder;
 
         // bubble sort
         boolean notFinish = true;
@@ -43,12 +40,5 @@ public class Main {
             }
         }
         return ordered;
-    }
-
-    private static void copyArray(SalesRepresentative[] randomOrder, SalesRepresentative[] ordered) {
-        for (int i = 0; i < ordered.length; i++) {
-            ordered[i] = new SalesRepresentative();
-            ordered[i].copyRep(randomOrder[i]);
-        }
     }
 }
