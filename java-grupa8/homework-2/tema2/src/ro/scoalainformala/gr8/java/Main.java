@@ -17,28 +17,24 @@ public class Main {
     }
 
     /**
-     * This method will oder the repo array
+     * This method will oder the repo array (bubble sort)
      *
      * @param randomOrder is the array repo in random order
      * @return ordered  is the ordered array of repo
      * @author Sorin Avram
      */
     private static SalesRepresentative[] sort(SalesRepresentative[] randomOrder) {
-
-        SalesRepresentative[] ordered =  randomOrder;
-
-        // bubble sort
         boolean notFinish = true;
         while (notFinish) {
             notFinish = false;
 
-            for (int i = 0; i < ordered.length - 1; i++) {
-                if (ordered[i].getSaleRepresentativeAmount() < ordered[i + 1].getSaleRepresentativeAmount()) {
-                    ordered[i].switchRepo(ordered[i + 1]);
+            for (int i = 0; i < randomOrder.length - 1; i++) {
+                if (randomOrder[i].getSaleRepresentativeAmount() < randomOrder[i + 1].getSaleRepresentativeAmount()) {
+                    randomOrder[i].switchRepo(randomOrder[i + 1]);
                     notFinish = true;
                 }
             }
         }
-        return ordered;
+        return randomOrder;
     }
 }
