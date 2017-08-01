@@ -86,6 +86,7 @@ public class SalesRepresentative {
         this.depNo = source.depNo;
         return this;
     }
+
     /**
      * Return the department name
      *
@@ -96,18 +97,19 @@ public class SalesRepresentative {
     public String getDepartmentName(byte depNo) {
 
         switch (depNo) {
-            case 1:
+            case 0:
                 return "North Sales";
-            case 2:
+            case 1:
                 return "Est Sales";
-            case 3:
+            case 2:
                 return "West Sales";
-            case 4:
-                return"South Sales";
+            case 3:
+                return "South Sales";
             default:
                 return "Error, it is no department for this number!";
         }
     }
+
     /**
      * Return the total sale
      *
@@ -116,13 +118,14 @@ public class SalesRepresentative {
      * @author Sorin Avram
      */
     public long getCompanySales(SalesRepresentative[] repo) {
-        long total =0;
+        long total = 0;
 
-        for (SalesRepresentative item: repo){
+        for (SalesRepresentative item : repo) {
             total += item.getSaleRepresentativeAmount();
         }
         return total;
     }
+
     /**
      * Return the department name
      *
@@ -130,13 +133,16 @@ public class SalesRepresentative {
      * @return the repo department name
      * @author Sorin Avram
      */
-    public byte getMostSucessfulDepartment(SalesRepresentative[] repos) {
-        long[] depTotal = {0,0,0,0,0};
+    public byte getMostSuccessfulDepartment(SalesRepresentative[] repos) {
+        long[] depTotal = {0, 0, 0, 0};
         long max = 0;
-        byte depNo =1;
+        byte depNo = 0;
 
-        for(SalesRepresentative item:repos) {
+        for (SalesRepresentative item : repos) {
             switch (item.depNo) {
+                case 0:
+                    depTotal[0] += item.getSaleRepresentativeAmount();
+                    break;
                 case 1:
                     depTotal[1] += item.getSaleRepresentativeAmount();
                     break;
@@ -146,19 +152,16 @@ public class SalesRepresentative {
                 case 3:
                     depTotal[3] += item.getSaleRepresentativeAmount();
                     break;
-                case 4:
-                    depTotal[4] += item.getSaleRepresentativeAmount();
-                    break;
                 default:
                     System.out.println("Error!");
             }
         }
-            for (byte i=0;i<=4;i++){
-                if (max < depTotal[i]){
-                    max = depTotal[i];
-                    depNo = i;
-                }
+        for (byte i = 0; i <= 3; i++) {
+            if (max < depTotal[i]) {
+                max = depTotal[i];
+                depNo = i;
             }
-            return depNo;
+        }
+        return depNo;
     }
 }
