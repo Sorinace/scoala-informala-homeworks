@@ -1,7 +1,7 @@
 package ro.scoalainformala.gr8.java;
 
 /**
- * It is a class which keep the repo records.
+ * It is a sales representative class
  *
  * @author Sorin Avram
  */
@@ -73,7 +73,7 @@ public class SalesRepresentative {
     }
 
     /**
-     * It is a method which copy a repo into the "this" one.
+     * It is a method which copy a repo to another one.
      *
      * @param source is the repo to be copied
      * @return the copied repo
@@ -111,28 +111,30 @@ public class SalesRepresentative {
     }
 
     /**
-     * Return the total sale
+     * Return the total amount of sales for the company
      *
-     * @param repo is the repo array.
-     * @return the total sale
+     * @param repos is the repo array
+     * @return the total amount of sales
      * @author Sorin Avram
      */
-    public long getCompanySales(SalesRepresentative[] repo) {
+
+    public long getCompanySales(SalesRepresentative[] repos) {
         long total = 0;
 
-        for (SalesRepresentative item : repo) {
+        for (SalesRepresentative item : repos) {
             total += item.getSaleRepresentativeAmount();
         }
         return total;
     }
 
     /**
-     * Return the department name
+     * Return number id of the best selling department
      *
-     * @param depNo is the repo department number
-     * @return the repo department name
+     * @param repos is the repo array.
+     * @return the best department
      * @author Sorin Avram
      */
+
     public byte getMostSuccessfulDepartment(SalesRepresentative[] repos) {
         long[] depTotal = {0, 0, 0, 0};
         long max = 0;

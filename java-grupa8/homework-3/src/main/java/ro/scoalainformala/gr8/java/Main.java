@@ -16,7 +16,7 @@ public class Main {
         System.out.println("\nThe most successfully department is " +
                 reps[0].getDepartmentName(reps[0].getMostSuccessfulDepartment(reps)) + ".");
 
-        // because the reps are in order the first one is most successful
+        // because the reps are in seals order the first one is most successful
         System.out.println("\nMost successful guy is " + reps[0].name + " from " +
                 reps[0].getDepartmentName(reps[0].depNo) + " with a revenue of " +
                 reps[0].getSaleRepresentativeAmount() + "$.");
