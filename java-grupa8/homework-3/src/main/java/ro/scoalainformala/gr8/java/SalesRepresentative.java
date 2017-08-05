@@ -6,13 +6,13 @@ package ro.scoalainformala.gr8.java;
  * @author Sorin Avram
  */
 public class SalesRepresentative {
-    public String name;
+    private String name;
     private int sales;
     private int quota;
-    public byte depNo;
+    private byte depNo;
 
     /**
-     * It is a object which record the repo records.
+     * It is a object constructor.
      *
      * @param name  is the repo name
      * @param sales is the number of sales of the repo
@@ -28,12 +28,12 @@ public class SalesRepresentative {
     }
 
     /**
-     * It is a object which initialize the repo records, when no arguments its given.
+     * @overide SalesRepresentative()
+     * It is a object constructor, when no arguments its given.
      * <p>
      * <p> name = "", is the repo name</p>
      * <p> sales = 0,  is the number of sales of the repo</p>
      * <p> quota = 0, is quota of sale</p>
-     *
      * @author Sorin Avram
      */
     public SalesRepresentative() {
@@ -44,6 +44,17 @@ public class SalesRepresentative {
     }
 
     /**
+     * Return the repo(sales representative) name.
+     *
+     * @return the sales representative name
+     * @author Sorin Avram
+     */
+    public String getName() {
+
+        return name;
+    }
+
+    /**
      * It is a method which calculate the revenue.
      *
      * @return the revenue, (sales * quota)
@@ -51,50 +62,44 @@ public class SalesRepresentative {
      */
     public int getSaleRepresentativeAmount() {
 
-        return (sales * quota);
+        return sales * quota;
     }
 
     /**
-     * It is a method which switch the two repo in array
+     * It is a method which switch the value of the repo with current one.
      *
-     * @param repo it is the repo which replace "this" repo
-     * @return the changed repo
+     * @param repo it is the repo value which will be switched with current repo
      * @author Sorin Avram
      */
-    public SalesRepresentative switchRepo(SalesRepresentative repo) {
+    public void switchRepo(SalesRepresentative repo) {
 
         SalesRepresentative temp = new SalesRepresentative();
 
         temp.copyRep(this);
         this.copyRep(repo);
         repo.copyRep(temp);
-
-        return this;
     }
 
     /**
-     * It is a method which copy a repo to another one.
+     * It is a method which copy a repo value from source to current one.
      *
      * @param source is the repo to be copied
-     * @return the copied repo
      * @author Sorin Avram
      */
-    public SalesRepresentative copyRep(SalesRepresentative source) {
+    private void copyRep(SalesRepresentative source) {
         this.name = source.name;
         this.sales = source.sales;
         this.quota = source.quota;
         this.depNo = source.depNo;
-        return this;
     }
 
     /**
      * Return the department name
      *
-     * @param depNo is the repo department number
      * @return the repo department name
      * @author Sorin Avram
      */
-    public String getDepartmentName(byte depNo) {
+    public String getDepartmentName() {
 
         switch (depNo) {
             case 0:
@@ -118,7 +123,7 @@ public class SalesRepresentative {
      * @author Sorin Avram
      */
 
-    public long getCompanySales(SalesRepresentative[] repos) {
+    public static long getCompanySales(SalesRepresentative[] repos) {
         long total = 0;
 
         for (SalesRepresentative item : repos) {
@@ -128,14 +133,14 @@ public class SalesRepresentative {
     }
 
     /**
-     * Return number id of the best selling department
+     * Return name of the best selling department (more sales)
      *
      * @param repos is the repo array.
-     * @return the best department
+     * @return the name of the best department.
      * @author Sorin Avram
      */
 
-    public byte getMostSuccessfulDepartment(SalesRepresentative[] repos) {
+    public static String getMostSuccessfulDepartment(SalesRepresentative[] repos) {
         long[] depTotal = {0, 0, 0, 0};
         long max = 0;
         byte depNo = 0;
@@ -164,6 +169,11 @@ public class SalesRepresentative {
                 depNo = i;
             }
         }
-        return depNo;
+        for (SalesRepresentative item : repos) {
+            if (item.depNo == depNo) {
+                return item.getDepartmentName();
+            }
+        }
+        return "Error, no name for department number " + depNo;
     }
 }

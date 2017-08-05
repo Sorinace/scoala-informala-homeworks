@@ -9,39 +9,40 @@ public class Main {
         SalesRepresentative[] sortedReps = sort(reps);
         System.out.println("The sorted list:");
         for (SalesRepresentative item : sortedReps) {
-            System.out.println(item.name + " from " + item.getDepartmentName(item.depNo) + " have a revenue of: " +
-                    item.getSaleRepresentativeAmount() + "$.");
+            System.out.println(item.getName() + " from " + item.getDepartmentName() +
+                    " have a revenue of: " + item.getSaleRepresentativeAmount() + "$.");
         }
-        System.out.println("\nThe total sale of company is " + reps[0].getCompanySales(reps) + "$.");
+        System.out.println("\nThe total sale of company is " + SalesRepresentative.getCompanySales(sortedReps) + "$.");
         System.out.println("\nThe most successfully department is " +
-                reps[0].getDepartmentName(reps[0].getMostSuccessfulDepartment(reps)) + ".");
+                SalesRepresentative.getMostSuccessfulDepartment(sortedReps) + ".");
 
         // because the reps are in seals order the first one is most successful
-        System.out.println("\nMost successful guy is " + reps[0].name + " from " +
-                reps[0].getDepartmentName(reps[0].depNo) + " with a revenue of " +
-                reps[0].getSaleRepresentativeAmount() + "$.");
+        System.out.println("\nMost successful guy is " + sortedReps[0].getName() + " from " +
+                sortedReps[0].getDepartmentName() + " with a revenue of " +
+                sortedReps[0].getSaleRepresentativeAmount() + "$.");
     }
 
     /**
      * This method will oder the repo array (bubble sort)
      *
-     * @param randomOrder is the array repo in random order
-     * @return ordered  is the ordered array of repo
+     * @param repos is the array repo in random order
+     * @return repos  is the ordered array of repo
      * @author Sorin Avram
      */
-    private static SalesRepresentative[] sort(SalesRepresentative[] randomOrder) {
+    private static SalesRepresentative[] sort(SalesRepresentative[] repos) {
         boolean notFinish = true;
+
         while (notFinish) {
             notFinish = false;
 
-            for (int i = 0; i < randomOrder.length - 1; i++) {
-                if (randomOrder[i].getSaleRepresentativeAmount() < randomOrder[i + 1].getSaleRepresentativeAmount()) {
-                    randomOrder[i].switchRepo(randomOrder[i + 1]);
+            for (int i = 0; i < repos.length - 1; i++) {
+                if (repos[i].getSaleRepresentativeAmount() < repos[i + 1].getSaleRepresentativeAmount()) {
+                    repos[i].switchRepo(repos[i + 1]);
                     notFinish = true;
                 }
             }
         }
-        return randomOrder;
+        return repos;
     }
 
     private static SalesRepresentative[] getSalesRepresentatives() {
