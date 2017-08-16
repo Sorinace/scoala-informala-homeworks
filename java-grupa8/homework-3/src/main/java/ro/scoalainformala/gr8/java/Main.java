@@ -13,15 +13,17 @@ public class Main {
 
         System.out.println("The sorted list:");
         for (int i = 0; i < list.getLength(); i++) {
-            System.out.println(list.getDetails(i));
+            System.out.println(list.getRepoName(i) + " with an achievement of " +
+                    list.getRepoAchievment(i) + "$, from " + list.getDepartmentName(i) + " department.");
         }
 
         System.out.println("\nThe total sale of company is " + company.getCompanyAchiev() + "$.");
 
-        System.out.println("\nThe most successfully department is " + company.getMostSuccesfulDepartmentData());
+        System.out.println("\nThe most successfully department is " + company.getMostSuccessfulDepartmentData());
 
         // because the reps are in seals order the first one is most successful
-        System.out.println("\nMost successful is " + list.getDetails(0));
+        System.out.println("\nMost successful is " + list.getRepoName(0) + " with an achievement of " +
+                list.getRepoAchievment(0) + "$, from " + list.getDepartmentName(0) + " department.");
     }
 
     /**

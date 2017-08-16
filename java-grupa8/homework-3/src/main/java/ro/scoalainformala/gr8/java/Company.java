@@ -6,7 +6,7 @@ public class Company {
     /**
      * This is the Company constructor.
      *
-     * @param departments the repo array for all company.
+     * @param departments the arrays of the departments names.
      * @author Sorin Avram
      */
     public Company(Department[] departments) {
@@ -34,7 +34,7 @@ public class Company {
      * @return the name and achieved of the best department.
      * @author Sorin Avram
      */
-    public String getMostSuccesfulDepartmentData() {
+    public String getMostSuccessfulDepartmentData() {
         String departmentName = "";
         int max = 0;
 

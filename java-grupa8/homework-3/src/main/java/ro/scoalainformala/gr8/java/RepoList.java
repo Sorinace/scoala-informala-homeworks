@@ -1,39 +1,30 @@
 package ro.scoalainformala.gr8.java;
 
 public class RepoList {
-    private int achiev;
-    private String repoDetails;
+    private SalesRepresentative repo;
+    private String repoDepartment;
+
 
     /**
      * This is the RepoList constructor.
      *
-     * @param achiev      the achievement of the repo
-     * @param repoDetails the details of repos      .
+     * @param repo           the SalesRepresentative data
+     * @param repoDepartment the department name      .
      * @author Sorin Avram
      */
-    public RepoList(int achiev, String repoDetails) {
-        this.achiev = achiev;
-        this.repoDetails = repoDetails;
+    public RepoList(SalesRepresentative repo, String repoDepartment) {
+        this.repo = repo;
+        this.repoDepartment = repoDepartment;
     }
 
     /**
-     * This method will return the repo achievement.
+     * This method will return the repo department.
      *
      * @author Sorin Avram
      */
-    public int getAchiev() {
+    public String getDepartment() {
 
-        return achiev;
-    }
-
-    /**
-     * This method will return the repo details.
-     *
-     * @author Sorin Avram
-     */
-    public String getRepoDetails() {
-
-        return repoDetails;
+        return repoDepartment;
     }
 
     /**
@@ -43,7 +34,7 @@ public class RepoList {
      * @author Sorin Avram
      */
     public void switchRepo(RepoList repo) {
-        RepoList temp = new RepoList(0, "");
+        RepoList temp = new RepoList(new SalesRepresentative(), "");
 
         temp.copy(this);
         this.copy(repo);
@@ -56,7 +47,25 @@ public class RepoList {
      * @author Sorin Avram
      */
     public void copy(RepoList repo) {
-        this.achiev = repo.achiev;
-        this.repoDetails = repo.repoDetails;
+        this.repo = repo.repo;
+        this.repoDepartment = repo.repoDepartment;
+    }
+
+    /**
+     * This method get the repo achievement.
+     *
+     * @author Sorin Avram
+     */
+    public int getAchiev() {
+        return repo.getSaleRepresentativeAmount();
+    }
+
+    /**
+     * This method get the repo name.
+     *
+     * @author Sorin Avram
+     */
+    public String getName() {
+        return repo.getName();
     }
 }

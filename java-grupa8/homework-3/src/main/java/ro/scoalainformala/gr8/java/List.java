@@ -14,6 +14,7 @@ public class List {
      * @author Sorin Avram
      */
     public List(Company company) {
+
         list = company.getList();
     }
 
@@ -36,12 +37,15 @@ public class List {
             }
         }
     }
+
     /**
      * This method get the number of repos from list
      *
+     * @return the number of repos in array
      * @author Sorin Avram
      */
     public int getLength() {
+
         return list.length;
     }
 
@@ -49,11 +53,32 @@ public class List {
      * This method will get repo details (String)
      *
      * @param i is the repo order in array
-     * @return the repo details (String)
+     * @return the repo department name (String)
      * @author Sorin Avram
      */
-    public String getDetails(int i) {
+    public String getDepartmentName(int i) {
 
-        return list[i].getRepoDetails();
+        return list[i].getDepartment();
+    }
+
+    /**
+     * This method get the repo name.
+     *
+     * @param i is the repo order in array
+     * @return the repo name (String)
+     * @author Sorin Avram
+     */
+    public String getRepoName(int i) {
+        return list[i].getName();
+    }
+
+    /**
+     * This method get the repo achievement.
+     *
+     * @return the repo achievement
+     * @author Sorin Avram
+     */
+    public int getRepoAchievment(int i) {
+        return list[i].getAchiev();
     }
 }

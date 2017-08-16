@@ -26,6 +26,16 @@ public class SalesRepresentative {
     }
 
     /**
+     * It is a SalesRepresentative constructor without parameters.
+     *
+     * @author Sorin Avram
+     */
+    public SalesRepresentative() {
+
+        this("", 0, 0);
+    }
+
+    /**
      * It is a method which calculate the revenue / achievement.
      *
      * @return the revenue, (sales * quota)
@@ -37,14 +47,11 @@ public class SalesRepresentative {
     }
 
     /**
-     * This method will get the SalesRepresentative details.
+     * This method get the repo name.
      *
-     * @return a String with repo details
      * @author Sorin Avram
      */
-
-    public String getDetails(String department) {
-        return name + " have a revenue of: " + this.getSaleRepresentativeAmount() + "$,"
-                + " and it is from " + department + " department.";
+    public String getName() {
+        return name;
     }
 }

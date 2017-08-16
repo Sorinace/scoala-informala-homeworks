@@ -7,7 +7,7 @@ public class Department {
     /**
      * This is the Department constructor.
      *
-     * @param depName the name of tehe department
+     * @param depName the name of the department
      * @param repo    the array of repos      .
      * @author Sorin Avram
      */
@@ -54,14 +54,13 @@ public class Department {
     }
 
     /**
-     * The method will get the repo details
+     * The method will get the repo including department
      *
      * @param repoNo is the number of the repo in array      .
      * @author Sorin Avram
      */
     public RepoList getRepoList(int repoNo) {
-        RepoList repoList = new RepoList(repo[repoNo].getSaleRepresentativeAmount(),
-                repo[repoNo].getDetails(getDepartmentName()));
+        RepoList repoList = new RepoList(repo[repoNo], depName);
         return repoList;
     }
 }
