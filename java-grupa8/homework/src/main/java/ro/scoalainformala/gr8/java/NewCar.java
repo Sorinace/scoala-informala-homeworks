@@ -1,6 +1,9 @@
 package ro.scoalainformala.gr8.java;
 
 public class NewCar extends Car {
-    private int bonus = 0;
 
+    public boolean getNewStatus() {
+
+        return true;
+    }
 }
