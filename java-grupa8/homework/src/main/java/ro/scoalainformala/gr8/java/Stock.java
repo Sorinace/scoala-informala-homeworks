@@ -1,7 +1,7 @@
 package ro.scoalainformala.gr8.java;
 
 public class Stock {
-    private Dealership dealer = null;
+    private Dealership dealer;
     private Car carType;
     private int noOfCars;
     private float price;
@@ -20,6 +20,15 @@ public class Stock {
     }
 
     /**
+     * It is the null Stock constructor;
+     */
+    public Stock() {
+        this.carType = null;
+        this.noOfCars = 0;
+        this.price = 0;
+    }
+
+    /**
      * Get the numbers of cars in stock;
      *
      * @return the numbers of cars in stock;
@@ -35,6 +44,7 @@ public class Stock {
      * @param dealer it is the dealer where this stock exist;
      */
     public void copy(Stock stock, Dealership dealer) {
+        this.carType = new Car();
         this.carType.copy(stock.carType);
         this.noOfCars = stock.noOfCars;
         this.price = stock.price;
@@ -100,5 +110,14 @@ public class Stock {
      */
     public String getCarName() {
         return carType.getCarName();
+    }
+
+    /**
+     * Get the new status.
+     *
+     * @return true if the car is new.
+     */
+    public boolean getNewStatus() {
+        return carType.getNewStatus();
     }
 }

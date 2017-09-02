@@ -8,6 +8,16 @@ public class Dealership {
     private GreenBonusProgram program = new GreenBonusProgram();
 
     /**
+     * Dealership constructor
+     *
+     * @param name, the name of the dealership.
+     */
+    public Dealership(String name, Stock[] stocks) {
+        this.name = name;
+        this.stocks = stocks;
+    }
+
+    /**
      * Get the stock list of this dealer;
      *
      * @return a stock list of cars which this dealer is sealing;

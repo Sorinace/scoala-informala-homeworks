@@ -21,6 +21,7 @@ public class List {
      */
     public void addToList(List list, Dealership dealer) {
         for (int i = 0; i < list.stock.length; i++) {
+            stock[numbersOfCar] = new Stock();
             stock[numbersOfCar].copy(list.stock[i], dealer);
             numbersOfCar++;
         }
@@ -43,5 +44,47 @@ public class List {
      */
     public Stock getStockItem(int position) {
         return stock[position];
+    }
+
+    /**
+     * Delete the car which ar not in stock;
+     */
+    public void filterCarInStock() {
+        for (Stock item : stock) {
+            if (item != null) {
+                if (item.getCarNumber() < 1) {
+                    delete(item);
+                }
+            }
+        }
+    }
+
+    /**
+     * Delete the car which ar not new;
+     */
+
+    public void filterNewCars() {
+        for (Stock item : stock) {
+            if (item != null) {
+                if (!item.getNewStatus()) {
+                    delete(item);
+                }
+            }
+        }
+    }
+
+    /**
+     * Delete the car from list;
+     */
+    private void delete(Stock item) {
+        for (int i = 0; i < numbersOfCar; i++) {
+            if (stock[i] == item) {
+                for (int j = i; j < numbersOfCar; j++) {
+                    stock[j] = stock[j + 1];
+                }
+                numbersOfCar--;
+                break;
+            }
+        }
     }
 }

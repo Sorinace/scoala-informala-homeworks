@@ -42,6 +42,14 @@ public class Car {
     }
 
     /**
+     * It is the null constructor of the Car object;
+     */
+    public Car() {
+        this("", "", 0, 0, 0, 0, 0,
+                0, false, false);
+    }
+
+    /**
      * This method copy each value of the carModel parameters in this car;
      *
      * @param carModel is the car which will be copied;
@@ -55,6 +63,8 @@ public class Car {
         this.productionYear = carModel.productionYear;
         this.rangePeChargeKm = carModel.rangePeChargeKm;
         this.horsePower = carModel.horsePower;
+        this.itIsNew = carModel.itIsNew;
+        this.fastCharging = carModel.fastCharging;
     }
 
     /**

@@ -2,10 +2,21 @@ package ro.scoalainformala.gr8.java;
 
 public class Customer {
     private String name;
-    private int founds = 30_000;
+    private int founds;
     private Dealership[] dealer;
     private List list = new List(new Stock[100]);
     private PurchaseOrder order;
+
+    /**
+     * Constructor for customers;
+     *
+     * @param name   the buyer name;
+     * @param founds haw many money the customer have for buying the car;
+     */
+    public Customer(String name, int founds) {
+        this.name = name;
+        this.founds = founds;
+    }
 
     /**
      * Check if the customers have enough money to buy the car;
@@ -18,6 +29,15 @@ public class Customer {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Seating the customer dealers.
+     *
+     * @param dealer is the dealer array.
+     */
+    public void setDealer(Dealership[] dealer) {
+        this.dealer = dealer;
     }
 
     /**
@@ -52,7 +72,7 @@ public class Customer {
     }
 
     /**
-     * Get list and the stock with all the cars the customers ask for.
+     * Get list and the stock with all the cars.
      *
      * @return the stock list;
      */
@@ -88,5 +108,19 @@ public class Customer {
      */
     public String getTheError(Stock stock) {
         return stock.getDealer().getError();
+    }
+
+    /**
+     * Filter the list and take out the old cars;
+     */
+    public void filterNewCars() {
+        list.filterNewCars();
+    }
+
+    /**
+     * Filter the list and take out the car which are not in stock;
+     */
+    public void filterCarInStock() {
+        list.filterCarInStock();
     }
 }
