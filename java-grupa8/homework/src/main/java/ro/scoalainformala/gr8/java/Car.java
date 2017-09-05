@@ -93,4 +93,26 @@ public class Car {
     public String getCarManufacturer() {
         return manufacturer;
     }
+
+    /**
+     * Set the car type / name;
+     *
+     * @param name is the car type / name;
+     */
+    public void setName(String name) {
+        this.model = name;
+    }
+
+    /**
+     * Check if the cars have the same names.
+     *
+     * @param carName it is the car name.
+     * @return true if have the same name or false if not;
+     */
+    public boolean equalsName(String carName) {
+        if (this.getCarName().equals(carName)) {
+            return true;
+        }
+        return false;
+    }
 }

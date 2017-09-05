@@ -65,7 +65,7 @@ public class List {
 
     public void filterNewCars() {
         for (Stock item : stock) {
-            if (item != null) {
+            if (item != null && item.getCar() != null) {
                 if (!item.getNewStatus()) {
                     delete(item);
                 }
@@ -77,14 +77,17 @@ public class List {
      * Delete the car from list;
      */
     private void delete(Stock item) {
-        for (int i = 0; i < numbersOfCar; i++) {
+        for (int i = 0; i < stock.length; i++) {
             if (stock[i] == item) {
-                for (int j = i; j < numbersOfCar; j++) {
-                    stock[j] = stock[j + 1];
+                if (i < stock.length - 1) {
+                    for (int j = i; j < stock.length - 1; j++) {
+                        stock[j] = stock[j + 1];
+                    }
+                } else {
+                    stock[i] = null;
                 }
-                numbersOfCar--;
-                break;
             }
         }
+        stock[stock.length - 1] = null;
     }
 }

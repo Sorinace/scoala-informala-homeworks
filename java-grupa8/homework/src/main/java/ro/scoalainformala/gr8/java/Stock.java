@@ -79,31 +79,6 @@ public class Stock {
     }
 
     /**
-     * Get the dealer name, which seal this car;
-     *
-     * @return the dealer name;
-     */
-    public Dealership getDealer() {
-        return dealer;
-    }
-
-    /**
-     * Decrease the number of car in stock with one;
-     */
-    public void setNoOfCars() {
-        noOfCars--;
-    }
-
-    /**
-     * Decrese the price of this car with the bonus value;
-     *
-     * @param bonus it is a bonus get for new electrical cars;
-     */
-    public void setCarPrice(float bonus) {
-        price -= bonus;
-    }
-
-    /**
      * Get the car name / model name;
      *
      * @return car name;
