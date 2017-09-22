@@ -1,7 +1,6 @@
 package ro.scoalainformala.gr8.java;
 
 public class Stock {
-    private Dealership dealer;
     private Car carType;
     private int noOfCars;
     private float price;
@@ -41,14 +40,12 @@ public class Stock {
      * Copy the stock values in this stock;
      *
      * @param stock  it contain the stock values;
-     * @param dealer it is the dealer where this stock exist;
      */
-    public void copy(Stock stock, Dealership dealer) {
+    public void copy(Stock stock) {
         this.carType = new Car();
         this.carType.copy(stock.carType);
         this.noOfCars = stock.noOfCars;
         this.price = stock.price;
-        this.dealer = dealer;
     }
 
     /**

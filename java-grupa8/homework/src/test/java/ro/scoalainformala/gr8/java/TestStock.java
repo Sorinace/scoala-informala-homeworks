@@ -10,7 +10,7 @@ public class TestStock {
         Stock stock1 = new Stock(new Car(),3,33000);
         Stock stock2 = new Stock();
 
-        stock2.copy(stock1, new Dealership("",new Stock[]{stock1,stock2}));
+        stock2.copy(stock1);
 
         assertEquals(true, stock1.getCarPrice() == stock2.getCarPrice());
         assertEquals(true, stock1.getCarNumber() == stock2.getCarNumber());

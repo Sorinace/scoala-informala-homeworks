@@ -22,7 +22,7 @@ public class List {
     public void addToList(List list, Dealership dealer) {
         for (int i = 0; i < list.stock.length; i++) {
             stock[numbersOfCar] = new Stock();
-            stock[numbersOfCar].copy(list.stock[i], dealer);
+            stock[numbersOfCar].copy(list.stock[i]);
             numbersOfCar++;
         }
     }
