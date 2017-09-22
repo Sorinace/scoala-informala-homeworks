@@ -115,4 +115,63 @@ public class Car {
         }
         return false;
     }
+
+    /**
+     * @return the rage per charge of the car
+     */
+    public int getRange() {
+        return rangePeChargeKm;
+    }
+
+    /**
+     * @return the horse power of the car
+     */
+    public int getHorsepower() {
+        return horsePower;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof Car))
+            return false;
+
+        Car car = (Car) o;
+
+        if (productionYear != car.productionYear)
+            return false;
+        if (electricMotorKw != car.electricMotorKw)
+            return false;
+        if (horsePower != car.horsePower)
+            return false;
+        if (electricBatteryKw != car.electricBatteryKw)
+            return false;
+        if (energyConsumptionKwPerKm != car.energyConsumptionKwPerKm)
+            return false;
+        if (rangePeChargeKm != car.rangePeChargeKm)
+            return false;
+        if (fastCharging != car.fastCharging)
+            return false;
+        if (itIsNew != car.itIsNew)
+            return false;
+        if (manufacturer != null ? !manufacturer.equals(car.manufacturer) : car.manufacturer != null)
+            return false;
+        return model != null ? model.equals(car.model) : car.model == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = manufacturer != null ? manufacturer.hashCode() : 0;
+        result = 31 * result + (model != null ? model.hashCode() : 0);
+        result = 31 * result + productionYear;
+        result = 31 * result + electricMotorKw;
+        result = 31 * result + horsePower;
+        result = 31 * result + electricBatteryKw;
+        result = 31 * result + energyConsumptionKwPerKm;
+        result = 31 * result + rangePeChargeKm;
+        result = 31 * result + (fastCharging ? 1 : 0);
+        result = 31 * result + (itIsNew ? 1 : 0);
+        return result;
+    }
 }

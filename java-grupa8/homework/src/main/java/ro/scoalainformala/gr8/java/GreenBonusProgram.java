@@ -1,9 +1,11 @@
 package ro.scoalainformala.gr8.java;
 
+import java.util.ArrayList;
+
 public class GreenBonusProgram {
-    private int fixBudget = 10000000;
-    private int budget = 0;
-    private BonusReceived[] history = new BonusReceived[1000];
+    private static final int fixBudget = 10000000;
+    private static int budget = 0;
+    private ArrayList<BonusReceived> history = new ArrayList<BonusReceived>();
     private int bonusNumber = 0;
 
     /**
@@ -23,10 +25,11 @@ public class GreenBonusProgram {
      *
      * @param bonus the data of the customer / dealer/ manufacturer which receive the bonus;
      */
-    public void getGreenBonus(BonusReceived bonus) {
-        history[bonusNumber].add(bonus);
+    public int getGreenBonus(BonusReceived bonus) {
+        history.add(bonus);
         bonusNumber++;
         budget += 10000;
+        return 10000;
     }
 }
 

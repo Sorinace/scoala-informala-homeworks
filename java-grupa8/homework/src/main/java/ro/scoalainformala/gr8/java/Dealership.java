@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Dealership {
     private String name;
+    GreenBonusProgram program = new GreenBonusProgram();
     private ArrayList<Stock> stocks;
 
     /**
@@ -40,5 +41,20 @@ public class Dealership {
             }
         }
         return false;
+    }
+
+    /**
+     * This method get the bonus.
+     *
+     * @param stock is the stock car customer want to buy;
+     * @param customerName the name of the customer;
+     * @return the value of the bonus;
+     */
+    public int getBonus (Stock stock, String customerName) throws BonusException {
+        if(program.checkFoundsEnough()){
+            return program.getGreenBonus(new BonusReceived(customerName,name,stock.getCar().getCarManufacturer(),stock.getCarName()));
+        }else {
+            throw new BonusException("The Green Bonus program has no money!");
+        }
     }
 }

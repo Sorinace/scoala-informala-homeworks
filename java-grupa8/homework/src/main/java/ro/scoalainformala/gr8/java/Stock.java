@@ -1,5 +1,7 @@
 package ro.scoalainformala.gr8.java;
 
+import java.util.Comparator;
+
 public class Stock {
     private Car carType;
     private int noOfCars;
@@ -39,7 +41,7 @@ public class Stock {
     /**
      * Copy the stock values in this stock;
      *
-     * @param stock  it contain the stock values;
+     * @param stock it contain the stock values;
      */
     public void copy(Stock stock) {
         this.carType = new Car();
@@ -91,5 +93,70 @@ public class Stock {
      */
     public boolean getNewStatus() {
         return carType.getNewStatus();
+    }
+
+    /**
+     * It is price comparator, which will help to order the ArrayList
+     */
+    public static Comparator<Stock> SortByPrice = new Comparator<Stock>() {
+        public int compare(Stock st1, Stock st2) {
+            if (st1.price < st2.price) {
+                return -1;
+            }
+            return 0;
+        }
+    };
+    /**
+     * It is range per charge comparator, which will help to order the ArrayList
+     */
+    public static Comparator<Stock> SortByRangeByCharge = new Comparator<Stock>() {
+        public int compare(Stock st1, Stock st2) {
+            if (st1.carType.getRange() < st2.carType.getRange()) {
+                return -1;
+            }
+            return 0;
+        }
+    };
+    /**
+     * It is horse power comparator, which will help to order the ArrayList
+     */
+    public static Comparator<Stock> SortByHorsepower = new Comparator<Stock>() {
+        public int compare(Stock st1, Stock st2) {
+            if (st1.carType.getHorsepower() < st2.carType.getHorsepower()) {
+                return -1;
+            }
+            return 0;
+        }
+    };
+
+    /**
+     * @return the number of cars in stock;
+     */
+    public int getNoOfCars() {
+        return noOfCars;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof Stock))
+            return false;
+
+        Stock stock = (Stock) o;
+
+        if (getNoOfCars() != stock.getNoOfCars())
+            return false;
+        if (Float.compare(stock.price, price) != 0)
+            return false;
+        return carType != null ? carType.equals(stock.carType) : stock.carType == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = carType != null ? carType.hashCode() : 0;
+        result = 31 * result + getNoOfCars();
+        result = 31 * result + (price != +0.0f ? Float.floatToIntBits(price) : 0);
+        return result;
     }
 }

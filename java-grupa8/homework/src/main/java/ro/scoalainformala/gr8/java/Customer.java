@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Customer {
     private String name;
     private int founds;
-    private Dealership[] dealer;
+    private ArrayList<Dealership> dealer;
     private List list = new List(new ArrayList<Stock>());
 
     /**
@@ -37,7 +37,7 @@ public class Customer {
      *
      * @param dealer is the dealer array.
      */
-    public void setDealer(Dealership[] dealer) {
+    public void setDealer(ArrayList<Dealership> dealer) {
         this.dealer = dealer;
     }
 
@@ -71,5 +71,23 @@ public class Customer {
      */
     public void filterCarInStock() {
         list.filterCarInStock();
+    }
+
+    /**
+     * @return the name of the costumer;
+     */
+    public String getName() {
+        return name;
+    }
+
+    public Dealership getDealer(Stock stock) {
+        for(Dealership item : dealer){
+            for(Stock st : item.getList()){
+                if(st.equals(stock)){
+                    return item;
+                }
+            }
+        }
+        return null;
     }
 }
