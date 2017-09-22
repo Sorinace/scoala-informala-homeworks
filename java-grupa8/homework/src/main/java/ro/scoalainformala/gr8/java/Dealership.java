@@ -1,15 +1,17 @@
 package ro.scoalainformala.gr8.java;
 
+import java.util.ArrayList;
+
 public class Dealership {
     private String name;
-    private Stock[] stocks;
+    private ArrayList<Stock> stocks;
 
     /**
      * Dealership constructor
      *
      * @param name, the name of the dealership.
      */
-    public Dealership(String name, Stock[] stocks) {
+    public Dealership(String name, ArrayList<Stock> stocks) {
         this.name = name;
         this.stocks = stocks;
     }
@@ -19,8 +21,8 @@ public class Dealership {
      *
      * @return a stock list of cars which this dealer is sealing;
      */
-    public List getList() {
-        return new List(stocks);
+    public ArrayList<Stock> getList() {
+        return stocks;
     }
 
     /**

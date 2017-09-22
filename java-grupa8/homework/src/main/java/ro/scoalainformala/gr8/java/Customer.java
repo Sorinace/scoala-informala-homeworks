@@ -1,10 +1,12 @@
 package ro.scoalainformala.gr8.java;
 
+import java.util.ArrayList;
+
 public class Customer {
     private String name;
     private int founds;
     private Dealership[] dealer;
-    private List list = new List(new Stock[100]);
+    private List list = new List(new ArrayList<Stock>());
 
     /**
      * Constructor for customers;
@@ -44,7 +46,7 @@ public class Customer {
      */
     public void getListFromDealer() {
         for (Dealership item : dealer) {
-            list.addToList(item.getList(), item);
+            list.addToList(item.getList());
         }
     }
 
@@ -53,7 +55,7 @@ public class Customer {
      *
      * @return the stock list;
      */
-    public Stock[] getList() {
+    public ArrayList<Stock> getList() {
         return list.getStock();
     }
 
