@@ -80,10 +80,16 @@ public class Customer {
         return name;
     }
 
+    /**
+     * Get the Dealer of the chosen car.
+     *
+     * @param stock the chosen car;
+     * @return the dealer who sell the chosen car.
+     */
     public Dealership getDealer(Stock stock) {
-        for(Dealership item : dealer){
-            for(Stock st : item.getList()){
-                if(st.equals(stock)){
+        for (Dealership item : dealer) {
+            for (Stock st : item.getList()) {
+                if (st.equals(stock)) {
                     return item;
                 }
             }

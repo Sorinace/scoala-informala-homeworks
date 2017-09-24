@@ -6,7 +6,6 @@ public class GreenBonusProgram {
     private static final int fixBudget = 10000000;
     private static int budget = 0;
     private ArrayList<BonusReceived> history = new ArrayList<BonusReceived>();
-    private int bonusNumber = 0;
 
     /**
      * Check if the Green Bonus Program have enough money to give an bonus;
@@ -27,7 +26,6 @@ public class GreenBonusProgram {
      */
     public int getGreenBonus(BonusReceived bonus) {
         history.add(bonus);
-        bonusNumber++;
         budget += 10000;
         return 10000;
     }

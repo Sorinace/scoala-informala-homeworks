@@ -23,4 +23,18 @@ public class TestDealership {
         assertEquals(true, dealer.isCarInStock(car1));
         assertEquals(false, dealer.isCarInStock(car2));
     }
+
+    @Test(expected = BonusException.class)
+    public void testGetBonus() throws BonusException {
+        Stock st = new Stock(new Car("Manufactor", "Logan", 2014, 55,
+                65, 340, 27, 130, true, false),
+                1, 14000);
+        ArrayList<Stock> stoks = new ArrayList<Stock>();
+        stoks.add(st);
+        Dealership dealer = new Dealership("Dealer",stoks);
+
+        for (int i=0; i<1001;i++){
+            dealer.getBonus(st,"Nelu");
+        }
+    }
 }

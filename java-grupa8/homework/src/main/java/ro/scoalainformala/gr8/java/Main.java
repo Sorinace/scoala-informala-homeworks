@@ -63,9 +63,9 @@ public class Main {
                 try {
                     bonus = bonusDealer.getBonus(buyer.getList().get(no), buyer.getName());
                 } catch (BonusException e) {
-
+                    System.out.println("\nWe can't offer you a bonus.\nThe Green Bonus program has no money!");
                 }
-                System.out.println("Bonus = "+bonus);
+                System.out.println("Bonus = " + bonus);
                 order = new PurchaseOrder(buyer.getList().get(no), buyer, bonus);
                 System.out.println(order.toString());
             }
@@ -108,72 +108,72 @@ public class Main {
 
         ArrayList<Stock> stock2 = new ArrayList<Stock>();
         stock2.add(new Stock(new Car("Manufactor 2", "Car 2.1", 2016, 75,
-                92, 340, 30, 150, true, true),
+                92, 340, 30, 130, true, true),
                 3, 33000));
         stock2.add(new Stock(new Car("Manufactor 2", "Car 2.2", 2016, 70,
-                97, 390, 27, 180, true, true),
+                97, 390, 27, 190, true, true),
                 1, 30000));
         stock2.add(new Stock(new Car("Manufactor 2", "Car 2.3", 2014, 55,
-                75, 220, 27, 130, true, false),
+                75, 220, 27, 230, true, false),
                 0, 14000));
         stock2.add(new Stock(new Car("Manufactor 2", "Car 2.4", 2017, 100,
-                120, 500, 40, 310, false, true),
+                120, 500, 40, 315, false, true),
                 3, 43000));
         stock2.add(new Stock(new Car("Manufactor 2", "Car 2.5", 2016, 80,
-                92, 400, 37, 210, true, true),
+                92, 400, 37, 215, true, true),
                 3, 38000));
 
 
         ArrayList<Stock> stock3 = new ArrayList<Stock>();
         stock3.add(new Stock(new Car("Manufactor 3", "Car 3.1", 2016, 75,
-                95, 330, 30, 150, true, true),
+                95, 330, 30, 175, true, true),
                 3, 33000));
         stock3.add(new Stock(new Car("Manufactor 3", "Car 3.2", 2016, 70,
-                77, 380, 27, 180, true, true),
+                77, 380, 27, 179, true, true),
                 1, 30000));
         stock3.add(new Stock(new Car("Manufactor 3", "Car 3.3", 2014, 55,
-                70, 280, 27, 130, true, false),
+                70, 280, 27, 144, true, false),
                 1, 14000));
         stock3.add(new Stock(new Car("Manufactor 3", "Car 3.4", 2017, 100,
-                110, 580, 40, 310, false, true),
+                110, 580, 40, 355, false, true),
                 3, 43000));
         stock3.add(new Stock(new Car("Manufactor 3", "Car 3.5", 2016, 80,
-                88, 480, 37, 210, true, true),
+                88, 480, 37, 288, true, true),
                 0, 38000));
 
         ArrayList<Stock> stock4 = new ArrayList<Stock>();
         stock4.add(new Stock(new Car("Manufactor 4", "Car 4.1", 2016, 75,
-                100, 300, 30, 150, true, true),
+                100, 300, 30, 190, true, true),
                 3, 33000));
         stock4.add(new Stock(new Car("Manufactor 4", "Car 4.2", 2016, 70,
-                82, 350, 27, 180, true, true),
+                82, 350, 27, 222, true, true),
                 1, 30000));
         stock4.add(new Stock(new Car("Manufactor 4", "Car 4.3", 2014, 55,
-                62, 250, 27, 130, true, false),
+                62, 250, 27, 154, true, false),
                 1, 14000));
         stock4.add(new Stock(new Car("Manufactor 4", "Car 4.4", 2017, 100,
-                125, 550, 40, 310, false, true),
+                125, 550, 40, 295, false, true),
                 3, 43000));
         stock4.add(new Stock(new Car("Manufactor 4", "Car 4.5", 2016, 80,
-                111, 450, 37, 210, true, true),
+                111, 450, 37, 262, true, true),
                 3, 38000));
 
 
         ArrayList<Stock> stock5 = new ArrayList<Stock>();
         stock5.add(new Stock(new Car("Manufactor 5", "Car 5.1", 2016, 75,
-                89, 310, 30, 150, true, true),
+                89, 310, 30, 232, true, true),
                 3, 33000));
         stock5.add(new Stock(new Car("Manufactor 5", "Car 5.2", 2016, 70,
-                99, 450, 27, 180, true, true),
+                99, 450, 27, 146, true, true),
                 1, 30000));
         stock5.add(new Stock(new Car("Manufactor 5", "Car 5.3", 2014, 55,
-                113, 240, 27, 130, true, false),
+                113, 240, 27, 103, true, false),
                 1, 14000));
         stock5.add(new Stock(new Car("Manufactor 5", "Car 5.4", 2017, 100,
-                122, 510, 40, 310, false, true),
+                122, 510, 40, 333, false, true),
                 0, 43000));
         stock5.add(new Stock(new Car("Manufactor 5", "Car 5.5", 2016, 80,
-                81, 460, 37, 210, true, true),
+                81, 460, 37, 234, true, true),
                 3, 38000));
 
         dealers.add(new Dealership("dealer1", stock1));

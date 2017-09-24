@@ -152,11 +152,4 @@ public class Stock {
         return carType != null ? carType.equals(stock.carType) : stock.carType == null;
     }
 
-    @Override
-    public int hashCode() {
-        int result = carType != null ? carType.hashCode() : 0;
-        result = 31 * result + getNoOfCars();
-        result = 31 * result + (price != +0.0f ? Float.floatToIntBits(price) : 0);
-        return result;
-    }
 }

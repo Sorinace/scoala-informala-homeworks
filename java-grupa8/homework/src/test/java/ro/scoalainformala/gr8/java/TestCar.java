@@ -17,6 +17,7 @@ public class TestCar {
         assertEquals(true, car1.getNewStatus() == car2.getNewStatus());
         assertEquals(true,car1.getCarManufacturer() == car2.getCarManufacturer());
         assertEquals(true,car1.equalsName(car2.getCarName()));
+        assertEquals(true,car1.equals(car1));
     }
 
 }

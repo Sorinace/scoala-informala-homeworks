@@ -159,19 +159,4 @@ public class Car {
             return false;
         return model != null ? model.equals(car.model) : car.model == null;
     }
-
-    @Override
-    public int hashCode() {
-        int result = manufacturer != null ? manufacturer.hashCode() : 0;
-        result = 31 * result + (model != null ? model.hashCode() : 0);
-        result = 31 * result + productionYear;
-        result = 31 * result + electricMotorKw;
-        result = 31 * result + horsePower;
-        result = 31 * result + electricBatteryKw;
-        result = 31 * result + energyConsumptionKwPerKm;
-        result = 31 * result + rangePeChargeKm;
-        result = 31 * result + (fastCharging ? 1 : 0);
-        result = 31 * result + (itIsNew ? 1 : 0);
-        return result;
-    }
 }
