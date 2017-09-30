@@ -50,11 +50,11 @@ public class Car {
     }
 
     /**
-     * This method copy each value of the carModel parameters in this car;
+     * This method is a constructor which copy parameter car;
      *
-     * @param carModel is the car which will be copied;
+     * @param carModel it is the car which will be copied;
      */
-    public void copy(Car carModel) {
+    public Car(Car carModel) {
         this.model = carModel.model;
         this.electricMotorKw = carModel.electricMotorKw;
         this.electricBatteryKw = carModel.electricBatteryKw;

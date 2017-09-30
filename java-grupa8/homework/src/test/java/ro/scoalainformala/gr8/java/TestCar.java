@@ -10,8 +10,7 @@ public class TestCar {
     public void testCarMethods() {
         Car car1 = new Car("manufactor", "Car", 1971, 100, 100,
                 177, 32,133, false, true);;
-        Car car2 = new Car();
-        car2.copy(car1);
+        Car car2 = new Car(car1);
 
         assertEquals(true, car1.getCarName().equals(car2.getCarName()));
         assertEquals(true, car1.getNewStatus() == car2.getNewStatus());

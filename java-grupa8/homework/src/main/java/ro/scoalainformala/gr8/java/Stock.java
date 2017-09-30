@@ -44,8 +44,7 @@ public class Stock {
      * @param stock it contain the stock values;
      */
     public void copy(Stock stock) {
-        this.carType = new Car();
-        this.carType.copy(stock.carType);
+        this.carType = new Car(stock.carType);
         this.noOfCars = stock.noOfCars;
         this.price = stock.price;
     }
