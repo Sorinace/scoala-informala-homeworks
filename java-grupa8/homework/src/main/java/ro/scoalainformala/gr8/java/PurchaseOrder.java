@@ -1,5 +1,8 @@
 package ro.scoalainformala.gr8.java;
 
+/**
+ * @author Sorin
+ */
 public class PurchaseOrder {
     private Customer buyer;
     private Car selectedCar;
@@ -11,10 +14,16 @@ public class PurchaseOrder {
      * @param stock is the stock of chosen car;
      * @param buyer is the customers which buy this car;
      */
-    public PurchaseOrder(Stock stock, Customer buyer) {
-        this.buyer = buyer;
-        this.selectedCar = stock.getCar();
-        this.price = stock.getCarPrice();
+    public PurchaseOrder(Stock stock, Customer buyer) throws OutOfStockException, EnoughFoundsException {
+        if (stock.getCarNumber() < 1) {
+            throw new OutOfStockException("This car it out of stock");
+        } else if (!buyer.itIsEnoughFonds(stock.getCarPrice())) {
+            throw new EnoughFoundsException("You don't have enough money for this car!");
+        } else {
+            this.buyer = buyer;
+            this.selectedCar = stock.getCar();
+            this.price = stock.getCarPrice();
+        }
     }
 
     /**
@@ -23,10 +32,16 @@ public class PurchaseOrder {
      * @param stock is the stock of chosen car;
      * @param buyer is the customers which buy this car;
      */
-    public PurchaseOrder(Stock stock, Customer buyer, int bonus) {
-        this.buyer = buyer;
-        this.selectedCar = stock.getCar();
-        this.price = stock.getCarPrice() - bonus;
+    public PurchaseOrder(Stock stock, Customer buyer, int bonus) throws OutOfStockException, EnoughFoundsException {
+        if (stock.getCarNumber() < 1) {
+            throw new OutOfStockException("This car it out of stock");
+        } else if (!buyer.itIsEnoughFonds(stock.getCarPrice() - bonus)) {
+            throw new EnoughFoundsException("You don't have enough money for this car!");
+        } else {
+            this.buyer = buyer;
+            this.selectedCar = stock.getCar();
+            this.price = stock.getCarPrice() - bonus;
+        }
     }
 
     @Override

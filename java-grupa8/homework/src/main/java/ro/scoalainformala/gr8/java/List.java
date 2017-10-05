@@ -2,6 +2,9 @@ package ro.scoalainformala.gr8.java;
 
 import java.util.ArrayList;
 
+/**
+ * @author Sorin
+ */
 public class List {
     private ArrayList<Stock> stock;
 
@@ -48,7 +51,7 @@ public class List {
      * Delete the car which ar not in stock;
      */
     public void filterCarInStock() {
-        for (int i=0; i<stock.size(); i++) {
+        for (int i = 0; i < stock.size(); i++) {
             if (stock.get(i) != null) {
                 if (stock.get(i).getCarNumber() < 1) {
                     stock.remove(i);
@@ -62,7 +65,7 @@ public class List {
      */
 
     public void filterNewCars() {
-        for (int i=0; i<stock.size(); i++) {
+        for (int i = 0; i < stock.size(); i++) {
             if (stock.get(i) != null && stock.get(i).getCar() != null) {
                 if (!stock.get(i).getNewStatus()) {
                     stock.remove(i);

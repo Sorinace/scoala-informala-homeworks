@@ -1,5 +1,8 @@
 package ro.scoalainformala.gr8.java;
 
+/**
+ * @author Sorin
+ */
 public class Car {
     private String manufacturer;
     private String model;
@@ -23,8 +26,8 @@ public class Car {
      * @param electricBatteryKw        it is the power of electrical battery (Kw);
      * @param energyConsumptionKwPerKm it is the consumption of the car (kw) for one km;
      * @param rangePeChargeKm          it is how many Km can car run with one charge;
-     * @param fastCharging             if the car have or not this facility of fast charging;
-     * @param itIsNew                  if the car is new or not;
+     * @param fastCharging             boolean, if the car have this is is true;
+     * @param itIsNew                  boolean, if the car is new is true;
      */
     public Car(String manufacturer, String model, int productionYear, int electricMotorKw, int horsePower,
                int electricBatteryKw, int energyConsumptionKwPerKm, int rangePeChargeKm, boolean fastCharging,
@@ -50,7 +53,7 @@ public class Car {
     }
 
     /**
-     * This method is a constructor which copy parameter car;
+     * This method is a constructor which copy carModel parameter;
      *
      * @param carModel it is the car which will be copied;
      */

@@ -2,6 +2,9 @@ package ro.scoalainformala.gr8.java;
 
 import java.util.ArrayList;
 
+/**
+ * @author Sorin
+ */
 public class GreenBonusProgram {
     private static final int fixBudget = 10000000;
     private static int budget = 0;

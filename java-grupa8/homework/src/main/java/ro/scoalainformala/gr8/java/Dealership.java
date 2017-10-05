@@ -2,6 +2,9 @@ package ro.scoalainformala.gr8.java;
 
 import java.util.ArrayList;
 
+/**
+ * @author Sorin
+ */
 public class Dealership {
     private String name;
     GreenBonusProgram program = new GreenBonusProgram();
@@ -47,14 +50,16 @@ public class Dealership {
      * This method get the bonus.
      *
      * @param stock is the stock car customer want to buy;
-     * @param customerName the name of the customer;
+     * @param buyer the name of the customer;
      * @return the value of the bonus;
      */
-    public int getBonus (Stock stock, String customerName) throws BonusException {
-        if(program.checkFoundsEnough()){
-            return program.getGreenBonus(new BonusReceived(customerName,name,stock.getCar().getCarManufacturer(),stock.getCarName()));
-        }else {
-            throw new BonusException("The Green Bonus program has no money!");
+    public int getBonus(Stock stock, Customer buyer) throws BonusException, UsedCarException {
+        if (!stock.getNewStatus()) {
+            throw new UsedCarException("Green Bonus program didn't allow you to buy old electrical cars!");
+        } else if (program.checkFoundsEnough()) {
+            return program.getGreenBonus(new BonusReceived(buyer.getName(), name, stock.getCar().getCarManufacturer(), stock.getCarName()));
+        } else {
+            throw new BonusException("Green Bonus program has no money!");
         }
     }
 }

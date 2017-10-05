@@ -1,5 +1,8 @@
 package ro.scoalainformala.gr8.java;
 
+/**
+ * @author Sorin
+ */
 public class BonusReceived {
     private String customerName;
     private String dealershipName;

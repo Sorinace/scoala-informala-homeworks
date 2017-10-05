@@ -2,6 +2,9 @@ package ro.scoalainformala.gr8.java;
 
 import java.util.Comparator;
 
+/**
+ * @author Sorin
+ */
 public class Stock {
     private Car carType;
     private int noOfCars;

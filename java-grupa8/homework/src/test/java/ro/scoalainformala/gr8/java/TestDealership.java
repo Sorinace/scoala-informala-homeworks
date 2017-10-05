@@ -15,10 +15,10 @@ public class TestDealership {
         car2.setName("Masina2");
         ArrayList<Stock> stock = new ArrayList<Stock>();
 
-        stock.add(new Stock(car1,1,30000));
-        stock.add(new Stock(car2,0,30000));
+        stock.add(new Stock(car1, 1, 30000));
+        stock.add(new Stock(car2, 0, 30000));
 
-        Dealership dealer = new Dealership("",stock);
+        Dealership dealer = new Dealership("", stock);
 
         assertEquals(true, dealer.isCarInStock(car1));
         assertEquals(false, dealer.isCarInStock(car2));
@@ -31,10 +31,17 @@ public class TestDealership {
                 1, 14000);
         ArrayList<Stock> stoks = new ArrayList<Stock>();
         stoks.add(st);
-        Dealership dealer = new Dealership("Dealer",stoks);
+        Dealership dealer = new Dealership("Dealer", stoks);
+        Customer buyer = new Customer("Nelu", 10000000);
 
-        for (int i=0; i<1001;i++){
-            dealer.getBonus(st,"Nelu");
+        for (int i = 0; i < 1001; i++) {
+            try {
+                dealer.getBonus(st, buyer);
+            } catch (BonusException e) {
+                System.out.println("\nWe can't offer you a bonus.\nThe Green Bonus program has no money!");
+            } catch (UsedCarException used) {
+                System.out.println("\nWe can't offer you a bonus.\nThe Green Bonus program has no money!");
+            }
         }
     }
 }

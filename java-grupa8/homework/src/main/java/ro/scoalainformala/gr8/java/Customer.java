@@ -2,6 +2,9 @@ package ro.scoalainformala.gr8.java;
 
 import java.util.ArrayList;
 
+/**
+ * @author Sorin
+ */
 public class Customer {
     private String name;
     private int founds;
