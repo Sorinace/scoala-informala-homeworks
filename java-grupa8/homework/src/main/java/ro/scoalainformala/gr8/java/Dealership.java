@@ -7,7 +7,6 @@ import java.util.ArrayList;
  */
 public class Dealership {
     private String name;
-    GreenBonusProgram program = new GreenBonusProgram();
     private ArrayList<Stock> stocks;
 
     /**
@@ -56,8 +55,9 @@ public class Dealership {
     public int getBonus(Stock stock, Customer buyer) throws BonusException, UsedCarException {
         if (!stock.getNewStatus()) {
             throw new UsedCarException("Green Bonus program didn't allow you to buy old electrical cars!");
-        } else if (program.checkFoundsEnough()) {
-            return program.getGreenBonus(new BonusReceived(buyer.getName(), name, stock.getCar().getCarManufacturer(), stock.getCarName()));
+        } else if (GreenBonusProgram.getABonus(new BonusReceived(buyer.getName(), name,
+                stock.getCar().getCarManufacturer(), stock.getCarName()))) {
+            return 10000;
         } else {
             throw new BonusException("Green Bonus program has no money!");
         }

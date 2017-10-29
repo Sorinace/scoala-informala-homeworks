@@ -3,6 +3,8 @@ package ro.scoalainformala.gr8.java;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
 
 import static org.junit.Assert.*;
 
@@ -25,23 +27,73 @@ public class TestDealership {
     }
 
     @Test(expected = BonusException.class)
-    public void testGetBonus() throws BonusException {
+    public void testGetBonus() throws BonusException, InterruptedException {
+
+        ExecutorService executor = Executors.newFixedThreadPool(5);
+
+        for (int i = 0; i < 1000; i++) {
+            BonusTray task = new BonusTray();
+            executor.execute(task);
+        }
+        executor.shutdown();
+
+        while (!executor.isTerminated()) {
+            Thread.sleep(100);
+        }
+
         Stock st = new Stock(new Car("Manufactor", "Logan", 2014, 55,
-                65, 340, 27, 130, true, false),
-                1, 14000);
+                65, 340, 27, 130, true, true),
+                1, 14_000);
         ArrayList<Stock> stoks = new ArrayList<Stock>();
         stoks.add(st);
         Dealership dealer = new Dealership("Dealer", stoks);
-        Customer buyer = new Customer("Nelu", 10000000);
+        Customer buyer = new Customer("Nelu", 20_000);
 
-        for (int i = 0; i < 1001; i++) {
+        try {
+            dealer.getBonus(st, buyer);
+        } catch (UsedCarException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    class BonusTray implements Runnable {
+        @Override
+        public void run() {
+            Stock st = new Stock(new Car("Manufactor", "Logan", 2014, 55,
+                    65, 340, 27, 130, true, true),
+                    1, 14_000);
+            ArrayList<Stock> stoks = new ArrayList<Stock>();
+            stoks.add(st);
+            Dealership dealer = new Dealership("Dealer", stoks);
+            Customer buyer = new Customer("Nelu", 20_000);
+
             try {
                 dealer.getBonus(st, buyer);
+            } catch (UsedCarException e) {
+                e.printStackTrace();
             } catch (BonusException e) {
-                System.out.println("\nWe can't offer you a bonus.\nThe Green Bonus program has no money!");
-            } catch (UsedCarException used) {
-                System.out.println("\nWe can't offer you a bonus.\nThe Green Bonus program has no money!");
+                e.printStackTrace();
             }
+        }
+
+    }
+
+
+    @Test(expected = UsedCarException.class)
+    public void testGetBonusOnUsedCar() throws UsedCarException {
+        Stock st = new Stock(new Car("Manufactor", "Logan", 2014, 55,
+                65, 340, 27, 130, true, false),
+                1, 14_000);
+        ArrayList<Stock> stoks = new ArrayList<Stock>();
+        stoks.add(st);
+        Dealership dealer = new Dealership("Dealer", stoks);
+        Customer buyer = new Customer("Nelu", 20_000);
+
+        try {
+            dealer.getBonus(st, buyer);
+        } catch (BonusException e) {
+            e.printStackTrace();
         }
     }
 }
